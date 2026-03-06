@@ -1,56 +1,112 @@
-# 🌾 Smart Irrigation System - Week 2 
+# Smart Irrigation System – Week 2
 
+## Overview
 
-**🔍 Objective**
+This project is part of the **Edunet Foundation Smart Irrigation Internship (Week 2)**.
+The objective of this task is to develop a machine learning model that predicts irrigation requirements for multiple agricultural parcels based on environmental sensor data.
 
-Build a machine learning model that predicts whether irrigation is required in 3 farm parcels based on 20 environmental sensor readings.
+The system analyzes sensor readings and determines whether irrigation is needed for each farm parcel, helping optimize water usage in agriculture.
 
+---
 
-**📊 Dataset**
+## Project Objective
 
-2000 records
+The goal of this project is to:
 
-20 sensor features: sensor_0 to sensor_19
+* Build a predictive model using environmental sensor data
+* Predict irrigation requirements for multiple farm parcels simultaneously
+* Implement and store a trained machine learning model for future predictions
 
-3 target labels: irrigation_machine_0, irrigation_machine_1, irrigation_machine_2
+---
 
+## Dataset Description
 
+The dataset used in this project contains environmental sensor readings collected from agricultural fields.
 
-**🧠 Model**
+Dataset characteristics:
 
-MultiOutputClassifier using Random Forest
+* **Total Records:** 2000
+* **Input Features:** 20 sensor readings (`sensor_0` to `sensor_19`)
+* **Target Labels:** 3 irrigation indicators
 
-Achieved accuracy above 80% for most irrigation targets
+Target variables:
 
+* `irrigation_machine_0`
+* `irrigation_machine_1`
+* `irrigation_machine_2`
 
+Each target label represents whether irrigation is required for the corresponding parcel.
 
-**🛠 Tools Used**
+---
 
-Python
+## Machine Learning Model
 
-Pandas
+A **MultiOutputClassifier using the Random Forest algorithm** was implemented to predict irrigation requirements for all farm parcels simultaneously.
 
-Scikit-learn
+Model capabilities:
 
-Jupyter Notebook
+* Handles multiple target outputs
+* Learns relationships between sensor readings and irrigation needs
+* Provides predictions for all parcels in a single model
 
+The model achieved **over 80% accuracy for most irrigation targets**.
 
+---
 
-**📌 Sample Prediction**
+## Model Deployment Preparation
 
-Input: [2, 1, 3, 4, ..., 4, 1]
+To enable reuse of the trained model, the model was saved as a serialized file using **Pickle (`.pkl`) format**.
 
-Output: [1, 0, 0] → Irrigation required in Parcel 0
+This allows the trained model to be loaded later without retraining, enabling faster predictions in real-world applications.
 
+---
 
+## Technologies and Tools Used
 
-**🗂 Files**
+* **Python**
+* **Jupyter Notebook** – Model training and experimentation
 
-irrigation_machine.csv – Dataset
+---
 
-Irrigation_System.ipynb – Model training and prediction code
+## Example Prediction
 
-farm_Irrigation_System.pkl – Saved trained ML model
+Example sensor input:
 
-README.md – Project description and documentation
+```id="i1xyv3"
+[2, 1, 3, 4, ..., 4, 1]
+```
 
+Model prediction output:
+
+```id="p9ak6n"
+[1, 0, 0]
+```
+
+Interpretation:
+
+* **Parcel 0:** Irrigation required
+* **Parcel 1:** No irrigation required
+* **Parcel 2:** No irrigation required
+
+---
+
+## Project Files
+
+| File                         | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| `irrigation_machine.csv`     | Dataset containing environmental sensor readings               |
+| `Irrigation_System.ipynb`    | Jupyter Notebook containing model training and prediction code |
+| `farm_Irrigation_System.pkl` | Saved trained machine learning model                           |
+| `README.md`                  | Project documentation                                          |
+
+---
+
+## Learning Outcome
+
+Through this task, I gained practical experience in:
+
+* Building **multi-output machine learning models**
+* Training and evaluating Random Forest classifiers
+* Working with environmental sensor datasets
+* Saving trained models for reuse in real-world applications
+* Applying machine learning techniques for **smart agriculture systems**
